@@ -6,9 +6,11 @@ module.exports = {
     try {
       const [rows] = await db.execute(
         `SELECT s.*, t.nombreDocumento 
-         FROM solicitarDocumentos s 
-         JOIN TipoDocumento t ON s.idTipoDocumento = t.idTipoDocumento
-         WHERE revisado = false`
+         FROM solicitarDocumentos s, TipoDocumento t 
+         WHERE revisado = false 
+         AND
+         s.idTipoDocumento = t.idTipoDocumento
+         `
       );
       res.json({ status: 200, message: "OK", data: rows });
     } catch (error) {
@@ -20,7 +22,7 @@ module.exports = {
   upsert: async (req, res) => {
     const {
       chatId,
-      idTipoDocumento,
+      idTipoDocumento = null,
       nombreEmpleado = null,
       numeroDeCedula = null,
       correoElectronico = null,
@@ -29,10 +31,8 @@ module.exports = {
 
     const revisado = false;
 
-    if (!chatId || !idTipoDocumento) {
-      return res
-        .status(400)
-        .json({ status: 400, message: "Falta chatId o idTipoDocumento" });
+    if (!chatId) {
+      return res.status(400).json({ status: 400, message: "Falta chatId " });
     }
 
     try {
@@ -60,12 +60,13 @@ module.exports = {
 
       res.json({ status: 200, message: "Registro creado/actualizado" });
     } catch (error) {
-      console.error("Error en upsert:", error);
+      console.error("Error en upsert:" + new Date().toISOString(), error);
       res
         .status(500)
         .json({ status: 500, message: "Error al insertar/actualizar" });
     }
   },
+
   delete: async (req, res) => {
     const { id } = req.params;
 

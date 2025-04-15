@@ -23,7 +23,7 @@ const main = async () => {
     provider: adapterProvider,
     database: adapterDB,
   },{
-    blacklist: ["573176012817", "3176012818"],
+    blacklist: [],
   });
 
   QRPortalWeb();

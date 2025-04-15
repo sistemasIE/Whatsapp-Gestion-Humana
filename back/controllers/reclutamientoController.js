@@ -14,24 +14,27 @@ module.exports = {
   },
 
   upsert: async (req, res) => {
-    const { chatId, nombre, telefono, ciudad, revisado } = req.body;
+    const { chatId, nombre, telefono, ciudad, cargo, revisado } = req.body;
+
     if (!chatId)
       return res.status(400).json({ status: 400, message: "Falta chatId" });
 
     try {
       await db.execute(
-        `INSERT INTO Reclutamiento (chatId, nombre, telefono, ciudad, revisado)
-         VALUES (?, ?, ?, ?, ?)
+        `INSERT INTO Reclutamiento (chatId, nombre, telefono, ciudad, cargo, revisado)
+         VALUES (?, ?, ?, ?, ?,?)
          ON DUPLICATE KEY UPDATE 
            nombre = IFNULL(VALUES(nombre), nombre),
            telefono = IFNULL(VALUES(telefono), telefono),
            ciudad = IFNULL(VALUES(ciudad), ciudad),
+           cargo = IFNULL(VALUES(cargo), cargo),
            revisado = IFNULL(VALUES(revisado), revisado)`,
         [
           chatId,
           nombre ?? null,
           telefono ?? null,
           ciudad ?? null,
+          cargo ?? null,
           revisado ?? false,
         ]
       );
@@ -51,7 +54,7 @@ module.exports = {
     try {
       const [result] = await db.execute(
         "DELETE FROM Reclutamiento WHERE idReclutamiento = ?",
-        [id]
+        [parseInt(id)]
       );
       if (result.affectedRows === 0) {
         return res.status(404).json({ status: 404, message: "No encontrado" });

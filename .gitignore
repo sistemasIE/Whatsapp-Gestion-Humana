@@ -1,13 +1,18 @@
 bot_sessions
 bot.qr.png
 baileys.log
+front-bot/node_modules
+front-bot\.angular
+front-bot\.vscode
 node_modules/*
 *.tsbuildinfo
 queue.class.log
 node_modules
 core.class.log
 environment.prod.ts
+.env
 env.js
+package-lock.json
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output

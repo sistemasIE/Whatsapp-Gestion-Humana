@@ -1,0 +1,27 @@
+version: '1.0'
+
+services:
+  bot:
+    build:
+      context: ./bot
+    volumes:
+      - ./bot:/usr/app  # Vincula el código local con el contenedor
+    ports:
+      - "5000:3000"
+
+  back:
+    build:
+      context: ./back
+    volumes:
+      - ./back:/usr/app  # Vincula el código local con el contenedor
+    ports:
+      - "5001:3001"
+
+  front-bot:
+    build:
+      context: ./front-bot
+    volumes:
+      - ./front-bot:/usr/app  # Vincula el código local con el contenedor
+    ports:
+      - "5002:80"
+    

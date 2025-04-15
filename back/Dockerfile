@@ -11,7 +11,7 @@ COPY . .
 RUN npm install
 
 # Expone el puerto que uses (si aplica)
-EXPOSE 3000
+EXPOSE 3001
 
 # Comando para iniciar tu bot
-CMD ["node", "app.js"]
+CMD ["node", "index.js"]
