@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TipoDocumentoComponent } from '../tipo-documento/tipo-documento.component';
 import { HttpClient } from '@angular/common/http';
-import environment from '../../environment/environment.dev';
+import environment from '../../environment/environment.prod';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 

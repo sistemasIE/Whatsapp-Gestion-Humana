@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Reclutamiento } from '../../interfaces/reclutamiento.interface';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import environment from '../../environment/environment.dev';
+import environment from '../../environment/environment.prod';
 
 @Component({
   selector: 'app-home',

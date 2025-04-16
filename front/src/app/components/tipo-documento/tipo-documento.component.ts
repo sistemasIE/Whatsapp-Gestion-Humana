@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import environment from '../../environment/environment.dev';
+import environment from '../../environment/environment.prod';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 

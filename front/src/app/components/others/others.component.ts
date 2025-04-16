@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import environment from '../../environment/environment.dev';
+import environment from '../../environment/environment.prod';
 import { Otro } from '../../interfaces/otro.interface';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
