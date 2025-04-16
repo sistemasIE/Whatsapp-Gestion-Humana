@@ -1,0 +1,57 @@
+<div class="container mt-4" style="max-width: 900px">
+  <h3 class="underline">💼 Hojas de Vida</h3>
+
+  <input
+    type="text"
+    class="form-control mb-3"
+    placeholder="Buscar por nombre, teléfono o ciudad..."
+    [(ngModel)]="busqueda"
+    (input)="filtrarYOrdenar()"
+  />
+
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th (click)="ordenarPor('nombre')" style="cursor: pointer">
+          Nombre
+          <span *ngIf="orden === 'nombre'">{{ ascendente ? "▲" : "▼" }}</span>
+        </th>
+        <th (click)="ordenarPor('telefono')" style="cursor: pointer">
+          Teléfono
+          <span *ngIf="orden === 'telefono'">{{ ascendente ? "▲" : "▼" }}</span>
+        </th>
+        <th (click)="ordenarPor('ciudad')" style="cursor: pointer">
+          Ciudad
+          <span *ngIf="orden === 'ciudad'">{{ ascendente ? "▲" : "▼" }}</span>
+        </th>
+        <th (click)="ordenarPor('cargo')" style="cursor: pointer">
+          Cargo
+          <span *ngIf="orden === 'cargo'">{{ ascendente ? "▲" : "▼" }}</span>
+        </th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of reclutamientos">
+        <td>{{ r.nombre }}</td>
+        <td>{{ r.telefono }}</td>
+        <td>{{ r.ciudad }}</td>
+        <td>{{ r.cargo }}</td>
+        <td>
+          <button
+            class="btn btn-success btn-sm me-2"
+            (click)="revisar(r.idReclutamiento)"
+          >
+            Aceptar
+          </button>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="descartar(r.idReclutamiento)"
+          >
+            Descartar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

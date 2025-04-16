@@ -1,0 +1,34 @@
+<!-- <hr class="my-4" />
+
+<div class="flex items-center justify-center flex-col">
+  <button class="btn btn-primary" (click)="abrirModal()">
+    <h5>Tipos de Documentos Registrados</h5>
+  </button>
+  <table class="table table-bordered mt-3 w-75" *ngIf="documentos.length && mostrarModal">
+    <thead class="table-light">
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doc of documentos; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ doc.nombreDocumento }}</td>
+        <td>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="eliminar(doc.idTipoDocumento)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!documentos.length" class="text-muted mt-3">
+    No hay documentos aún.
+  </div>
+</div> -->

@@ -1,0 +1,54 @@
+<div
+  class="grid grid-cols-1 md:grid-cols-3 items-center justify-center gap-4 py-3 px-5 from-blue-400 to-blue-900 bg-gradient-to-r"
+>
+  <!-- Logos -->
+  <div
+    class="bg-white rounded-full flex justify-center items-center gap-5 p-4 shadow-lg"
+  >
+    <img src="https://i.imgur.com/U8P2Xrx.png" alt="Logo" class="w-24 h-24" />
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png"
+      alt="WhatsApp"
+      class="w-16 h-16"
+    />
+  </div>
+
+  <!-- Texto de bienvenida -->
+  <div class="flex flex-col items-center text-center gap-2 md:col-span-1">
+    <span
+      class="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-300 to-blue-400"
+    >
+      ¡Bienvenido!
+    </span>
+    <span class="text-gray-100 max-w-md">
+      Este software te permitirá verificar los mensajes enviados a WhatsApp.
+    </span>
+  </div>
+
+  <!-- Enlaces -->
+  <div class="flex flex-col md:items-end items-center gap-2 font-semibold">
+    <a
+      [routerLink]="['/']"
+      class="text-white hover:transition-all hover:rotate-12 hover:ease-in-out hover:duration-300 ease-out duration-300 !hover:text-black"
+      >Hojas de Vida</a
+    >
+    <a
+      [routerLink]="['/documentos']"
+      class="text-white hover:transition-all hover:rotate-12 hover:ease-in-out hover:duration-300 ease-out duration-300 !hover:text-black"
+      >Documentos</a
+    >
+    <a
+      [routerLink]="['/otros']"
+      class="text-white hover:transition-all hover:rotate-12 hover:ease-in-out hover:duration-300 ease-out duration-300 !hover:text-black"
+      >Consultas</a
+    >
+    <a
+      [routerLink]="['/qr']"
+      class="text-white hover:transition-all hover:rotate-12 hover:ease-in-out hover:duration-300 ease-out duration-300 !hover:text-black"
+      >QR</a
+    >
+    <a class="text-red-500" (click)="logout()">Salir</a>
+  </div>
+</div>
+
+<div class="from-green-700 to-blue-300 bg-gradient-to-r h-2 w-full"></div>

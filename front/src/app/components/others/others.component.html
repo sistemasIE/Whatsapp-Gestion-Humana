@@ -1,0 +1,53 @@
+<div class="container mt-4">
+  <h3 class="underline">Consultas y Otros❓</h3>
+
+  <input
+    type="text"
+    class="form-control my-3"
+    placeholder="Buscar por nombre, motivo o estado..."
+    [(ngModel)]="termino"
+    (input)="aplicarFiltro()"
+  />
+
+  <table class="table table-hover table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th>Número Celular</th>
+        <th>Nombre</th>
+        <th>Motivo</th>
+        <th>Revisado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let o of filtrados">
+        <td>{{ o.chatId.toString() | slice:2:-1 }}</td>
+        <td>{{ o.nombre }}</td>
+        <td>{{ o.motivo }}</td>
+        <td>
+          <span
+            class="badge"
+            [ngClass]="{
+              'bg-success': o.revisado,
+              'bg-secondary': !o.revisado
+            }"
+          >
+            {{ o.revisado ? "Sí" : "No" }}
+          </span>
+        </td>
+        <td>
+          <button
+            class="btn btn-success btn-sm me-2"
+            (click)="aceptar(o.idOtros)"
+            [disabled]="o.revisado"
+          >
+            Aceptar
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="rechazar(o.idOtros)">
+            Rechazar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
