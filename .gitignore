@@ -1,15 +1,11 @@
 bot_sessions
 bot.qr.png
 baileys.log
-front-bot/node_modules
-front-bot\.angular
-front-bot\.vscode
 node_modules/*
 *.tsbuildinfo
 queue.class.log
 node_modules
 core.class.log
-environment.prod.ts
 .env
 env.js
 package-lock.json
@@ -43,15 +39,4 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
 
-# System files
-.DS_Store
-Thumbs.db
