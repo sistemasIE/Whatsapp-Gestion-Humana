@@ -1,0 +1,32 @@
+services:
+  bot:
+    build:
+      context: ./bot
+      dockerfile: Dockerfile
+    image: bot-prod:latest 
+    ports:
+      - "5000:3000" 
+    command: npm run start 
+    restart: always 
+    env_file:
+      - ./.env
+
+  back:
+    build:
+      context: ./back
+      dockerfile: Dockerfile # Asegúrate de especificar el Dockerfile si no se llama "Dockerfile"
+    image: back-prod:latest # Etiqueta la imagen con un nombre y versión
+    ports:
+      - "5001:3001" # Exponemos el puerto real del contenedor
+    env_file:
+      - ./.env
+    restart: always # Asegura que el contenedor se reinicie si falla
+
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile # Asegúrate de especificar el Dockerfile si no se llama "Dockerfile"
+    image: front-prod:latest # Etiqueta la imagen con un nombre y versión
+    ports:
+      - "5002:80" # Exponemos el puerto 80 del contenedor para el frontend
+    restart: always # Asegura que el contenedor se reinicie si falla
