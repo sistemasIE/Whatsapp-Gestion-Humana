@@ -10,7 +10,11 @@ const flowReclutamiento = addKeyword([
   "oferta laboral",
 ])
   .addAnswer(
+<<<<<<< HEAD
     "*ATENCIÓN*\n*Si* o *No*\nAutoriza el uso de algunos datos personales, como su número de teléfono, su nombre y su ciudad de residencia, para poder brindarte un mejor servicio. ¿Estás de acuerdo?",
+=======
+    "*ATENCIÓN*\n Autoriza el uso de algunos datos personales, como su número de teléfono, su nombre y su ciudad de residencia?\n\n ESCRIBA *'SI'* o *'NO'*.",
+>>>>>>> main
     { capture: true, delay: 3000 },
     async (ctx, { flowDynamic, endFlow }) => {
       const { body } = ctx;

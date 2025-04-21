@@ -17,11 +17,19 @@ services:
     ports:
       - "5001:3001"
 
+<<<<<<< HEAD
   front-bot:
     build:
       context: ./front-bot
     volumes:
       - ./front-bot:/usr/app  # Vincula el código local con el contenedor
+=======
+  front:
+    build:
+      context: ./front
+    volumes:
+      - ./front:/usr/app  # Vincula el código local con el contenedor
+>>>>>>> main
     ports:
       - "5002:80"
     

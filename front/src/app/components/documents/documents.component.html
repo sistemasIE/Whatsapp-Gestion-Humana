@@ -1,0 +1,63 @@
+<app-tipo-documento />
+
+<div class="container mt-4">
+  <h3 class="underline">📄Documentos Solicitados</h3>
+
+  <div class="table-responsive shadow">
+    <table class="table table-hover table-bordered align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Fecha</th>
+          <th>Documento</th>
+          <th>Nombre</th>
+          <th>Cédula</th>
+          <th>Correo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of solicitudes">
+          <td>
+            <p [ngClass]="getColorClass(s.fechaSolicitud)">
+              {{ s.fechaSolicitud | date : "shortDate" }}
+            </p>
+          </td>
+          <td>
+            <p [ngClass]="getColorClass(s.fechaSolicitud)">
+              {{ s.nombreDocumento }}
+            </p>
+          </td>
+          <td>
+            <p [ngClass]="getColorClass(s.fechaSolicitud)">
+              {{ s.nombreEmpleado }}
+            </p>
+          </td>
+          <td>
+            <p [ngClass]="getColorClass(s.fechaSolicitud)">
+              {{ s.numeroDeCedula }}
+            </p>
+          </td>
+          <td>
+            <p [ngClass]="getColorClass(s.fechaSolicitud)">
+              {{ s.correoElectronico }}
+            </p>
+          </td>
+          <td>
+            <button
+              class="btn btn-success btn-sm me-2"
+              (click)="aceptar(s.idSolicDoc)"
+            >
+              Aceptar
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="rechazar(s.idSolicDoc)"
+            >
+              Rechazar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
