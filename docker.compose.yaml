@@ -22,19 +22,11 @@ services:
       - ./.env
     restart: always # Asegura que el contenedor se reinicie si falla
 
-<<<<<<< HEAD
-  front-bot:
-    build:
-      context: ./front-bot
-      dockerfile: Dockerfile # Asegúrate de especificar el Dockerfile si no se llama "Dockerfile"
-    image: front-bot-prod:latest # Etiqueta la imagen con un nombre y versión
-=======
   front:
     build:
       context: ./front
       dockerfile: Dockerfile # Asegúrate de especificar el Dockerfile si no se llama "Dockerfile"
     image: front-prod:latest # Etiqueta la imagen con un nombre y versión
->>>>>>> main
     ports:
       - "5002:80" # Exponemos el puerto 80 del contenedor para el frontend
     restart: always # Asegura que el contenedor se reinicie si falla
