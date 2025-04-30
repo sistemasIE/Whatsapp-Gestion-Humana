@@ -14,16 +14,17 @@ module.exports = {
   },
 
   upsert: async (req, res) => {
-    const { chatId, nombre, telefono, ciudad, cargo, revisado } = req.body;
+    const { chatId, cedula, nombre, telefono, ciudad, cargo, revisado } = req.body;
 
     if (!chatId)
-      return res.status(400).json({ status: 400, message: "Falta chatId" });
+      return res.status(400).json({ status: 400, message: "Falta el chatId (número de teléfono que viene en cualquier mensaje de whatsapp)" });
 
     try {
       await db.execute(
-        `INSERT INTO Reclutamiento (chatId, nombre, telefono, ciudad, cargo, revisado)
-         VALUES (?, ?, ?, ?, ?,?)
+        `INSERT INTO Reclutamiento (chatId, cedula, nombre, telefono, ciudad, cargo, revisado)
+         VALUES (?, ?, ?, ?, ?, ?,?)
          ON DUPLICATE KEY UPDATE 
+           cedula = IFNULL(VALUES(cedula), cedula),
            nombre = IFNULL(VALUES(nombre), nombre),
            telefono = IFNULL(VALUES(telefono), telefono),
            ciudad = IFNULL(VALUES(ciudad), ciudad),
@@ -31,6 +32,7 @@ module.exports = {
            revisado = IFNULL(VALUES(revisado), revisado)`,
         [
           chatId,
+          cedula ?? null,
           nombre ?? null,
           telefono ?? null,
           ciudad ?? null,

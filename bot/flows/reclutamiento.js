@@ -26,6 +26,13 @@ const flowReclutamiento = addKeyword([
         });
       }
     }
+  ).addAnswer(
+    "🪪Escriba su cédula (SOLO LOS NÚMEROS, SIN PUNTOS!!!)*:",
+    { capture: true, delay: 3000 },
+    async (ctx, { flowDynamic }) => {
+      const { body, from } = ctx;
+      await addToDB("reclutamiento", { chatId: from, cedula: body });
+    }
   )
   .addAnswer(
     "📝 Escriba su *Nombre Completo*:",
