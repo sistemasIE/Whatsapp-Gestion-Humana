@@ -22,7 +22,7 @@ module.exports = {
     try {
       await db.execute(
         `INSERT INTO Reclutamiento (chatId, cedula, nombre, telefono, ciudad, cargo, revisado)
-         VALUES (?, ?, ?, ?, ?, ?,?)
+         VALUES (?, ?, ?, ?, ?, ?, ?)
          ON DUPLICATE KEY UPDATE 
            cedula = IFNULL(VALUES(cedula), cedula),
            nombre = IFNULL(VALUES(nombre), nombre),
