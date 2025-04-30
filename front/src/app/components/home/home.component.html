@@ -12,6 +12,7 @@
   <table class="table table-bordered table-hover">
     <thead>
       <tr>
+        <th>Cédula</th>
         <th (click)="ordenarPor('nombre')" style="cursor: pointer">
           Nombre
           <span *ngIf="orden === 'nombre'">{{ ascendente ? "▲" : "▼" }}</span>
@@ -33,6 +34,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let r of reclutamientos">
+        <td>{{ r.cedula }}</td>
         <td>{{ r.nombre }}</td>
         <td>{{ r.telefono }}</td>
         <td>{{ r.ciudad }}</td>
